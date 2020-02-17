@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "166546125873",
+    "firebase_url": "https://nearlynew-c871e.firebaseio.com",
+    "project_id": "nearlynew-c871e",
+    "storage_bucket": "nearlynew-c871e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166546125873:android:a827bdb42e07687db4d110",
+        "android_client_info": {
+          "package_name": "com.example.nearlynew"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "166546125873-g3s4370tkk74qefaib92nmti2e670mc7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDZVrc4gVKsZhd1ADFMyL2EDUfuIpzzHN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "166546125873-g3s4370tkk74qefaib92nmti2e670mc7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
