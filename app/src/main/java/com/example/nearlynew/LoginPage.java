@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -123,8 +124,16 @@ public class LoginPage extends AppCompatActivity {
 
     private void updateUI(FirebaseUser fUser) {
 
-        startActivity(new Intent(this,MainActivity.class));
+        RadioButton r1,r2;
+        r1=findViewById(R.id.seller_radio_btn);
+        r2=findViewById(R.id.buyer_radio_btn);
 
+        if(r1.isChecked()) {
+            startActivity(new Intent(this, SellerHome.class));
+        }
+        else if (r2.isChecked()){
+            startActivity(new Intent(this, BuyerHome.class));
+        }
     }
 
 
