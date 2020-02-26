@@ -25,13 +25,17 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginPage extends AppCompatActivity {
 
     private SignInButton googleSignInBtn;
     private static final String TAG = "GoogleActivity";
     private static final int RC_SIGN_IN = 9001;
-
+    FirebaseDatabase database;
+    String personName = "", personEmail = "";
+    String userId = "";
 
     // [START declare_auth]
     private FirebaseAuth mAuth;
@@ -45,6 +49,7 @@ public class LoginPage extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
         googleSignInBtn=findViewById(R.id.sign_in_button);
         mAuth = FirebaseAuth.getInstance();
+        database =  FirebaseDatabase.getInstance();
 
         // Configure Google Sign In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -110,6 +115,12 @@ public class LoginPage extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
+                            if(user != null){
+                                personName = user.getDisplayName();
+                                personEmail = user.getEmail();
+
+                            }
+
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -129,9 +140,23 @@ public class LoginPage extends AppCompatActivity {
         r2=findViewById(R.id.buyer_radio_btn);
 
         if(r1.isChecked()) {
+            FirebaseUser user =  mAuth.getCurrentUser();
+            if(user != null){
+                userId = fUser.getUid();
+            }
+            DatabaseReference mRef =  database.getReference().child("users").child("seller").child(userId);
+            mRef.child("name").setValue(personName);
+            mRef.child("email").setValue(personEmail);
             startActivity(new Intent(this, SellerHome.class));
         }
         else if (r2.isChecked()){
+            FirebaseUser user =  mAuth.getCurrentUser();
+            if(user != null){
+                userId = fUser.getUid();
+            }
+            DatabaseReference mRef =  database.getReference().child("users").child("buyer").child(userId);
+            mRef.child("name").setValue(personName);
+            mRef.child("email").setValue(personEmail);
             startActivity(new Intent(this, BuyerHome.class));
         }
     }
