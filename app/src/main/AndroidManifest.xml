@@ -11,7 +11,8 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OtpVerification"></activity>
+        <activity android:name=".VerifyPhoneActivity"></activity>
+        <activity android:name=".OtpVerification" />
         <activity android:name=".Register" />
         <activity android:name=".SellerHome" />
         <activity android:name=".BuyerHome" />

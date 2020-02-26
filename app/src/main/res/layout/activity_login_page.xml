@@ -14,17 +14,16 @@
         android:layout_centerHorizontal="true"
         android:layout_below="@id/new_user"
         android:layout_marginTop="20dp"
-
         />
 
 
-    <androidx.appcompat.widget.AppCompatSpinner
+    <Spinner
         android:layout_width="75dp"
         android:layout_height="35dp"
         android:layout_below="@id/radio_group"
         android:padding="8dp"
         android:layout_marginTop="20dp"
-        android:id="@+id/spinner"/>
+        android:id="@+id/spinnerCountries"/>
 
     <EditText
         android:id="@+id/number"
@@ -35,7 +34,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:layout_below="@id/radio_group"
-        android:layout_toRightOf="@+id/spinner"
+        android:layout_toRightOf="@+id/spinnerCountries"
         android:inputType="number"
         android:textAlignment="center"
         android:hint="Number" />

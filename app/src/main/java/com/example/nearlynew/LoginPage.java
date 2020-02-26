@@ -7,7 +7,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +32,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginPage extends AppCompatActivity {
+
+    private Spinner spinner;
+    private EditText editTextPhoneNumber;
 
     private SignInButton googleSignInBtn;
     private static final String TAG = "GoogleActivity";
@@ -66,6 +72,30 @@ public class LoginPage extends AppCompatActivity {
                 signIn();
             }
         } );
+
+        spinner = findViewById(R.id.spinnerCountries);
+        spinner.setAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_spinner_dropdown_item, CountryData.countryNames));
+        editTextPhoneNumber = findViewById(R.id.number);
+        findViewById(R.id.loginBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String code = CountryData.countryAreaCodes[spinner.getSelectedItemPosition()];
+                String number = editTextPhoneNumber.getText().toString().trim();
+                if (number.isEmpty() || number.length() < 10){
+                    editTextPhoneNumber.setError("Number is required");
+                    editTextPhoneNumber.requestFocus();
+                    return;
+                }
+                String phoneNumber = "+" + code + number;
+                Intent intent = new Intent(LoginPage.this,VerifyPhoneActivity.class);
+                intent.putExtra("phoneNumber",phoneNumber);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+
     }
 
     private void signIn() {
