@@ -137,4 +137,8 @@ public class LoginPage extends AppCompatActivity {
     }
 
 
+    public void register(View view) {
+        startActivity(new Intent(this, Register.class));
+
+    }
 }

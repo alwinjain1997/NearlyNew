@@ -54,13 +54,14 @@
         android:background="@drawable/round_button"
         android:text="Login" />
 
-    <TextView
+    <Button
         android:id="@+id/forgot_password"
         android:layout_width="wrap_content"
         android:layout_below="@id/password"
         android:layout_height="wrap_content"
+        android:background="@null"
+        android:textColor="#04091A"
         android:layout_marginTop="5dp"
-        android:linksClickable="true"
         android:layout_alignRight="@id/password"
         android:text="Forgot Password?" />
 
@@ -81,7 +82,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="60dp"
         android:layout_centerHorizontal="true"
         app:srcCompat="@drawable/nearlynew" />
 
@@ -113,6 +114,7 @@
         android:id="@+id/new_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="register"
         android:layout_below="@id/textView3"
         android:layout_centerHorizontal="true"
         android:background="@null"
