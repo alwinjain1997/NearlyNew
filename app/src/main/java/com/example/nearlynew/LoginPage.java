@@ -120,7 +120,6 @@ public class LoginPage extends AppCompatActivity {
                                 personEmail = user.getEmail();
 
                             }
-
                             updateUI(user);
                         } else {
                             // If sign in fails, display a message to the user.
@@ -140,6 +139,7 @@ public class LoginPage extends AppCompatActivity {
         r2=findViewById(R.id.buyer_radio_btn);
 
         if(r1.isChecked()) {
+            Log.d("r1 checked","r1 checked");
             FirebaseUser user =  mAuth.getCurrentUser();
             if(user != null){
                 userId = fUser.getUid();
