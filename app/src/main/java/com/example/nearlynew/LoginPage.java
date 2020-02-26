@@ -193,7 +193,10 @@ public class LoginPage extends AppCompatActivity {
 
 
     public void register(View view) {
+        Toast.makeText(this, "fdjfsdg", Toast.LENGTH_SHORT).show();
         startActivity(new Intent(this, Register.class));
 
     }
+
+
 }
